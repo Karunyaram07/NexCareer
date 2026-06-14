@@ -2,6 +2,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "../components/theme-provider"
 import Header from "@/components/header";
+import { ClerkProvider } from "@clerk/nextjs";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -26,6 +27,7 @@ export default function RootLayout({ children }) {
       suppressHydrationWarning
     >
       <body className="min-h-full flex flex-col">
+         <ClerkProvider>
         <ThemeProvider
             attribute="class"
             defaultTheme="dark"
@@ -43,6 +45,7 @@ export default function RootLayout({ children }) {
           {/*footer*/}
         
         </ThemeProvider>
+        </ClerkProvider>
         
         </body>
     </html>
