@@ -269,7 +269,7 @@ import { Loader2 } from 'lucide-react'
         {updateLoading ? (<>
             <Loader2 className='mr-2 h-4 w-4 animate-spin'/>
             Saving..</>):("Complete Profile")}
-            Complete Profile
+            
         </Button>
 
     

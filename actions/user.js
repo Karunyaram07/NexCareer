@@ -4,6 +4,7 @@ import { industries } from "@/data/industries";
 import { prisma } from "@/lib/prisma";
 import { auth } from "@clerk/nextjs/server";
 import { select } from "framer-motion/client";
+import { generateAIInsights } from "./dashboard";
 
 export async function updateUser(data){
     //Check for userId of Clerk in prisma
@@ -34,19 +35,34 @@ export async function updateUser(data){
                 }); //From the Onboarding form searching the user wuth the particular industry
              // If industry doesn't exist, create it with default values
             if (!industryInsight){
-                industryInsight=await tx.industryInsight.create({
-                    data:{
-                        industry:data.industry,
-                        salaryRanges:[],//default
-                        growthRate:0,
-                        demandLevel:"MEDIUM",
-                        topSkills:[],
-                        marketOutlook:"NEUTRAL",
-                        keyTrends:[],
-                        recommendedSkills:[],
-                        nextUpdate:new Date(Date.now()+7*24*60*60*1000),//1 week from now
-                    },
-                });
+                // industryInsight=await tx.industryInsight.create({
+                //     data:{
+                //         industry:data.industry,
+                //         salaryRanges:[],//default
+                //         growthRate:0,
+                //         demandLevel:"MEDIUM",
+                //         topSkills:[],
+                //         marketOutlook:"NEUTRAL",
+                //         keyTrends:[],
+                //         recommendedSkills:[],
+                //         nextUpdate:new Date(Date.now()+7*24*60*60*1000),//1 week from now
+                //     },
+                // });
+
+        //!create insights using GEMINI AI if user have no industry insights
+                            
+                            const insights=await generateAIInsights(data.industry)
+                            //!Saving the AI Genearted Response to the Database
+                            industryInsight = await tx.industryInsight.create({
+                                data:{
+                                    industry:data.industry,
+                                    ...insights,
+                                    nextUpdate:new Date(Date.now()+7*24*60*60*1000),
+                                },
+                            } 
+                        );
+        
+        
             }
 
             //Update the User Table
@@ -64,7 +80,7 @@ export async function updateUser(data){
 
             return {updatedUser,industryInsight};
             }
-            ,{timeout:10000}
+            ,{timeout:300000}
             
         );
         return {success:true,...result}
