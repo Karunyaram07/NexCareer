@@ -19,11 +19,13 @@ import { features } from "@/data/features";
 import { Card, CardContent, CardDescription, CardTitle } from "@/components/ui/card";
 import { howItWorks } from "@/data/howItWorks";
 import Link from "next/link";
+import Background from "@/components/Background";
 
 
 export default function Home() {
   return (
       <div className="landing-bg">
+        <Background/>
     <HeroSection/>
 
 <section className="py-16 md:py-24 bg-muted/5 dark:bg-muted/30">

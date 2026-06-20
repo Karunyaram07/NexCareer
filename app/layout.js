@@ -40,7 +40,7 @@ export default function RootLayout({ children }) {
           {/*header*/}
           <Header/>
           <main className="min-h-screen">
-            <Background/>
+            
             {children}
           </main>
           <Toaster richColors/>

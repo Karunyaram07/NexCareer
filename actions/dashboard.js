@@ -48,6 +48,7 @@ export async function getIndustryInsights(){
         }
         const user = await prisma.user.findUnique({
         where: { clerkUserId: userId },
+        include:{industryInsight:true}
         });
     
         if(!user){
@@ -57,9 +58,11 @@ export async function getIndustryInsights(){
                     if (!user.industryInsight){
                         //!create insights using GEMINI AI if user have no industry insights
                     
-                    const insights=generateAIInsights(user.industry)
+                    const insights=await generateAIInsights(user.industry)
                     //!Saving the AI Genearted Response to the Database
+
                     const industryInsight = await prisma.industryInsight.create({
+                        //!Updating the IndustryInsight Table also with the generated data 
                         data:{
                             industry:user.industry,
                             ...insights,
@@ -69,10 +72,10 @@ export async function getIndustryInsights(){
                 );
 
 
-            return industryInsight;
+            return industryInsight; //!returning the Industry Table implementation
                 
             }
 
-            return user.industryInsight;
+            return user.industryInsight; //!returning AI updated User Table industryInsight
             //! If we have user's Industry Insights are there already just return them
 }
