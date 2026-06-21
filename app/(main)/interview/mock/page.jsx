@@ -7,7 +7,7 @@ import Quiz from '../_components/Quiz'
 const MockInterviewPage = () => {
   return (
     <>
-     <div>
+     <div className='container mx-auto space-y-4 py-6'>
       <div className='flex flex-col space-y-2 mx-2'>
         <Link href={"/interview"}>
         <Button variant='link' className={"gap-2 pl-0"}>
@@ -18,7 +18,7 @@ const MockInterviewPage = () => {
 
         <div>
            <h1 className="text-6xl font-bold gradient-title">Mock Interview</h1>
-          <p className="text-muted-foreground">
+          <p className="text-muted-foreground mb-5">
             Test your knowledge with industry-specific questions
           </p>
         </div>
