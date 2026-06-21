@@ -10,11 +10,12 @@ import { Loader2 } from 'lucide-react';
 import React, { useEffect, useState } from 'react'
 import { BarLoader } from 'react-spinners';
 import { toast } from 'sonner';
+import QuizResult from './Quiz-Result';
 
 const Quiz = () => {
     const [currentQuestion,setCurrentQuestion]=useState(0);
     const [answers,setAnswers]=useState([]); //! Tracks Array user selected answers
-    const [showExplanation,setShowExplanation]=useState(true)
+    const [showExplanation,setShowExplanation]=useState(false)
 
     const startNewQuiz =()=>{
         setCurrentQuestion(0);
@@ -107,7 +108,7 @@ const Quiz = () => {
         //!Once Option selected by the User, Array will be updated
         //! Updates the answers array with currently selected answer
         //! by user for the Current Quesion
-        setAnswers([newAnswers]);
+        setAnswers(newAnswers);
 
     }
     const question = quizData[currentQuestion];
@@ -129,7 +130,7 @@ const Quiz = () => {
     const calculateScore=()=>{
         let correct=0;
         answers.forEach((answer,index)=>{
-            if(answer==quizData[index].correctAnswer){
+            if(answer===quizData[index].correctAnswer){
                 correct++;
             }
         })
@@ -150,8 +151,6 @@ const Quiz = () => {
         } catch (error) {
             toast.error("Failed to Save the Quiz Results")  
         }
-
-
     }
 
      
@@ -193,17 +192,22 @@ const Quiz = () => {
                 </div>
             )}
             
+
           </CardContent>
           <CardFooter>
-             //!If we have not selected show Selection till now, 
+             {/* //!If we have not selected show Selection till now, 
              //!then we will show the 'Show Explanation button'
+              */}
              {!showExplanation &&(
                 <Button 
                 onClick={()=>setShowExplanation(true)}
                 variant='outline'
-                //! The answers array is not updated it means
-                //! the answer is not selected by user
-                //! Until user selects his answer don't show the explanation
+
+                u
+                // ! The answers array is not updated it means
+                // ! the answer is not selected by user
+                // ! Until user selects his answer don't show the explanation
+                m
                 disabled={!answers[currentQuestion]} 
                 
                 >
