@@ -14,6 +14,7 @@ import { Textarea } from '@/components/ui/textarea'
 import { entriesToMarkdown } from '@/app/lib/helper'
 import { useUser } from '@clerk/nextjs'
 import MDEditor from "@uiw/react-md-editor";
+import { toast } from 'sonner'
 
 
 const ResumeBuilder = ({initialContent}) => {
@@ -103,6 +104,7 @@ const ResumeBuilder = ({initialContent}) => {
   };
 
 
+//!Generating PDF Logic 
 const generatePDF = async () => {
   setIsGenerating(true);
   try {
@@ -190,7 +192,16 @@ const generatePDF = async () => {
 
 
 
-  const onSubmit=()=>{}
+  useEffect(()=>{
+    if(saveResult && !isSaving){
+      toast.success("Resume Saved Successfully");
+    }
+    if(saveError){
+      toast.error(saveError.message || "Failed to save resume")
+    }
+  }, [saveResult,saveError,isSaving]);
+
+
   return (
     <div>
     <div data-color-mode="light" className="space-y-4">
@@ -200,10 +211,38 @@ const generatePDF = async () => {
         </h1>
 
         <div className='space-x-2'>
-        <Button variant="destructive">
-          <Save className='h-4 w-4' />
-          Save
-        </Button>
+                        
+                        <Button
+                variant="destructive"
+                onClick={async () => {
+                  try {
+                    // Sync latest form content before saving
+                    const latestContent = activeTab === "edit" 
+                      ? getCombinedContent() || previewContent 
+                      : previewContent;
+
+                    await saveResumeFn(latestContent);
+                  } catch (error) {
+                    console.error("Save error:", error);
+                  }
+                }}
+                disabled={isSaving}
+              >
+                {isSaving ? (
+                  <>
+                    <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                    Saving...
+                  </>
+                ) : (
+                  <>
+                    <Save className="h-4 w-4" />
+                    Save
+                  </>
+                )}
+              </Button>
+
+
+
         <Button onClick={generatePDF} disabled={isGenerating}>
           {isGenerating ? (
             <>
@@ -233,7 +272,7 @@ const generatePDF = async () => {
 
 
             <TabsContent value="edit">
-          <form onSubmit={handleSubmit(onSubmit)} className="space-y-8">
+          <form  className="space-y-8">
             {/* Contact Information */}
             <div className="space-y-4">
               <h3 className="text-lg font-medium">Contact Information</h3>
@@ -485,10 +524,10 @@ const generatePDF = async () => {
             />
 
           </div>
+      </TabsContent>
+  </Tabs>
 
-        
-
-                    <div
+  <div
           id="resume-pdf"
           style={{ display: "none" }}
         >
@@ -502,10 +541,6 @@ const generatePDF = async () => {
         </div>
           
 
-
-
-      </TabsContent>
-  </Tabs>
   </div>
 
 
