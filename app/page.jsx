@@ -33,7 +33,7 @@ export default function Home() {
 
     <div className="text-center mb-12">
       <h2 className="text-3xl md:text-4xl font-bold tracking-tighter">
-        How SensAI Works
+        How NexCareer Works
       </h2>
 
       <p className="mt-4 text-muted-foreground max-w-2xl mx-auto">
@@ -142,13 +142,15 @@ export default function Home() {
       </h2>
 
       <p className="mt-4 text-muted-foreground max-w-2xl mx-auto">
-        Thousands of students and professionals use SensAI
+        Thousands of students and professionals use NexCareer
         to improve resumes, identify skill gaps, and prepare
         for their dream careers.
       </p>
     </div>
 
-    <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+    
+
+    <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
 
       {/* Active Users */}
       <Card className="bg-card border-border hover:scale-105 hover:shadow-lg transition-all duration-300">
@@ -189,24 +191,6 @@ export default function Home() {
         </CardContent>
       </Card>
 
-      {/* Roadmaps */}
-      <Card className="bg-card border-border hover:scale-105 transition-all duration-300">
-        <CardContent className="p-8 text-center">
-          <div className="text-5xl mb-4">🗺️</div>
-
-          <h3 className="text-4xl font-bold">
-            3.2K+
-          </h3>
-
-          <p className="text-muted-foreground mt-2">
-            Roadmaps Generated
-          </p>
-
-          <div className="mt-4 text-emerald-600 dark:text-emerald-400 text-sm">
-            ↑ 15% this month
-          </div>
-        </CardContent>
-      </Card>
 
       {/* Success Rate */}
       <Card className="bg-card border-border hover:scale-105 transition-all duration-300">
@@ -231,46 +215,11 @@ export default function Home() {
 
     {/* Bottom Dashboard Style Bar */}
     {/* FIX: was bg-white/5 border-white/10 — invisible in light mode */}
-    <div className="mt-16 rounded-3xl border border-border bg-muted/5 dark:bg-muted/40 p-8">
-
-      <div className="grid md:grid-cols-3 gap-8">
-
-        <div>
-          <p className="text-muted-foreground text-sm">
-            Average Resume Score
-          </p>
-
-          <h3 className="text-3xl font-bold mt-2">
-            82 / 100
-          </h3>
-        </div>
-
-        <div>
-          <p className="text-muted-foreground text-sm">
-            Skills Identified
-          </p>
-
-          <h3 className="text-3xl font-bold mt-2">
-            125K+
-          </h3>
-        </div>
-
-        <div>
-          <p className="text-muted-foreground text-sm">
-            Career Matches
-          </p>
-
-          <h3 className="text-3xl font-bold mt-2">
-            9.8K+
-          </h3>
-        </div>
-
-      </div>
-
-    </div>
+  
 
   </div>
 </section>
+
 
 
 <section className="py-16 md:py-24">
@@ -284,7 +233,7 @@ export default function Home() {
 
       <p className="mt-4 text-muted-foreground max-w-2xl mx-auto">
         Thousands of professionals have accelerated their careers
-        using SensAI's AI-powered guidance.
+        using NexCareer's AI-powered guidance.
       </p>
     </div>
 
@@ -361,7 +310,7 @@ export default function Home() {
       </h2>
 
       <p className="mt-4 text-muted-foreground">
-        Everything you need to know about SensAI.
+        Everything you need to know about NexCareer.
       </p>
     </div>
 
@@ -426,8 +375,7 @@ export default function Home() {
         </h2>
 
         <p className="mt-6 max-w-2xl mx-auto text-lg text-muted-foreground">
-          Upload your resume, uncover hidden skill gaps, generate a
-          personalized roadmap, and prepare for interviews with
+          Upload your resume, uncover hidden skill gaps,and prepare for interviews,generate cover letters with
           AI-powered guidance.
         </p>
 
@@ -470,9 +418,9 @@ export default function Home() {
         </div>
 
         <div className="mt-8 flex flex-wrap justify-center gap-6 text-sm text-muted-foreground">
-          <span>✓ Free Resume Analysis</span>
-          <span>✓ Instant Feedback</span>
-          <span>✓ Personalized Roadmaps</span>
+          <span>✓ Resume Ready </span>
+          <span>✓ Interview Ready</span>
+          <span>✓ Job Ready</span>
         </div>
 
       </div>
@@ -480,6 +428,13 @@ export default function Home() {
 
   </div>
 </section>
+
+
+
+
+
+
+
 
     </div>
   );

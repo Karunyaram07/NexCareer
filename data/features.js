@@ -1,27 +1,33 @@
-import { BrainCircuit, Briefcase, LineChart, ScrollText } from "lucide-react";
+import {
+  BrainCircuit,
+  Briefcase,
+  FileText,
+  BarChart3,
+} from "lucide-react";
 
 export const features = [
   {
-    icon: <BrainCircuit className="w-10 h-10 mb-4 text-primary" />,
-    title: "AI-Powered Career Guidance",
+    icon: <FileText className="w-10 h-10 mb-4 text-primary" />,
+    title: "AI Resume Builder",
     description:
-      "Get personalized career advice and insights powered by advanced AI technology.",
+      "Create professional ATS-friendly resumes with AI-powered content enhancement and personalized recommendations.",
   },
   {
     icon: <Briefcase className="w-10 h-10 mb-4 text-primary" />,
-    title: "Interview Preparation",
+    title: "Cover Letter Generation",
     description:
-      "Practice with role-specific questions and get instant feedback to improve your performance.",
+      "Generate tailored cover letters for specific job roles and companies using advanced AI assistance.",
   },
   {
-    icon: <LineChart className="w-10 h-10 mb-4 text-primary" />,
-    title: "Industry Insights",
+    icon: <BrainCircuit className="w-10 h-10 mb-4 text-primary" />,
+    title: "Industry Assessments",
     description:
-      "Stay ahead with real-time industry trends, salary data, and market analysis.",
+      "Practice with AI-generated industry-specific quizzes and receive instant performance feedback.",
   },
   {
-    icon: <ScrollText className="w-10 h-10 mb-4 text-primary" />,
-    title: "Smart Resume Creation",
-    description: "Generate ATS-optimized resumes with AI assistance.",
+    icon: <BarChart3 className="w-10 h-10 mb-4 text-primary" />,
+    title: "Career Insights",
+    description:
+      "Track progress through analytics, performance reports, and personalized improvement suggestions.",
   },
 ];
