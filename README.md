@@ -94,19 +94,26 @@ NexCareer is a full-stack AI-powered career growth platform that helps users cre
 
 ### Landing Page
 
-![Landing Page](./screenshots/landing-page.png)
+<img width="1875" height="897" alt="image" src="https://github.com/user-attachments/assets/8c8669e1-f5fd-4fb7-8efe-c441cb4b7fa0" />
+
 
 ### Resume Builder
 
-![Resume Builder](./screenshots/resume-builder.png)
+<img width="1893" height="892" alt="image" src="https://github.com/user-attachments/assets/c542ff25-7dd3-4c13-91c0-d1adec60988f" />
+
 
 ### Cover Letter Generator
 
-![Cover Letter](./screenshots/cover-letter.png)
+<img width="1886" height="892" alt="image" src="https://github.com/user-attachments/assets/393072c4-7304-4249-8b08-2f3229efcf49" />
+
 
 ### Assessment Dashboard
 
-![Dashboard](./screenshots/dashboard.png)
+<img width="1885" height="898" alt="image" src="https://github.com/user-attachments/assets/e52be627-43fb-442d-a3a5-b05417a72cd9" />
+
+### Mock Interviewa
+
+<img width="1867" height="812" alt="image" src="https://github.com/user-attachments/assets/078c8784-bcda-4fae-bef7-cbaa10bd68a7" />
 
 ---
 
